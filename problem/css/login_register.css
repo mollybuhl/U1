@@ -4,11 +4,10 @@ body.login{
     
 }
 
-#main{
-    margin: 10vh 8vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+body.register{
+    background-image: url(../media/backdrop_reg.jpg);
+    backdrop-filter: blur(10px);
+    
 }
 
 h1{
@@ -28,7 +27,7 @@ input, button{
     height: 4vh;
 }
 
-.login > a{
+.login > a, .register > a{
     margin-top: 2vh;
     display: block;
     text-align: center;
@@ -36,6 +35,25 @@ input, button{
     text-decoration: underline;
 }
 
-.login > p{
+.login > p, .register > p{
     text-align: center;
+}
+
+#connecting{
+    background-color: rgba(245, 245, 245, 0.899);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    position: absolute;
+    top: 0;
+    z-index: 10;
+
+    font-size: 28px;
+}
+
+#connecting.unvisable{
+    display: none;
 }
