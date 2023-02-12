@@ -1,25 +1,61 @@
-async function check_login(taker){
+async function check_login(rqst, action){
+
+    connecting();
+
+    const responce = await fetch(rqst);
+
+    console.log(responce);
+
+    switch(responce.status){
+        case 404:
+            document.querySelector("#connecting").classList.add("invisable");
+            document.querySelector(".login > p").textContent = "Wrong user name or password";
+            document.querySelector(".login > p").style.backgroundColor = "white";
+            
+            break;
+        case 200:
+            if(action === "login"){
+                document.querySelector("#connecting").classList.add("invisable");
+                start_quiz();
+            }else{
+                document.querySelector("#connecting").classList.add("invisable");
+                feedback("Registration Complete. Pleace proceed to login.");
+            }
+            
+            break;
+        case 418:
+            feedback("The server thinks it is not a teapot!");
+            break;
+        case 409:
+            feedback("Sorry that name is taken. Please try another one.");        
+            console.log("already a user");
+            break;
+        default:
+            feedback("Sorry something went wrong, please try again."); 
+            console.log("BUG");
+    }
+
+}
+
+function connecting(){
     const connect = document.createElement("div");
     connect.setAttribute("id", "connecting")
     document.querySelector("body").appendChild(connect);
     connect.textContent = "Contacting Server..."
+}
 
-    const rqst = new Request(`https://teaching.maumt.se/apis/access/${taker}`);
+function feedback(message){
+    document.querySelector("#connecting").textContent = "";
 
-    const responce = await fetch(rqst);
-    const resource = await responce.json();
-    
-    
+    const feedback = document.createElement("div");
+    feedback.setAttribute("id", "feedback");
+    feedback.innerHTML = `<p>${message}<p> <button>close</button>`
+    document.querySelector("body").appendChild(feedback);
 
-    if(resource.ok){
-        console.log("OK!" + " " + resource);
-        connect.classList.add("unvisable");
-    }else{
-        connect.classList.add("unvisable");
-        document.querySelector(".login > p").textContent = "Wrong user name or password";
-        document.querySelector(".login > p").style.backgroundColor = "white";
+    feedback.querySelector("button").addEventListener("click", close)
+    function close(){
+        feedback.classList.add("visable");
+        document.querySelector("#connecting").classList.add("invisable");
     }
-    
-   
     
 }

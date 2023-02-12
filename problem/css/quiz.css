@@ -1,0 +1,4 @@
+body.quiz{
+    background-image: url("../media/backdrop_quiz.jpg");
+    backdrop-filter: blur(10px);
+}

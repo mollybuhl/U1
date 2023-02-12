@@ -45,6 +45,8 @@ header{
 footer{
     margin: 2vh 8vw;
     height: 10vh;
+    position: fixed;
+    bottom: 0;
 }
 
 footer > p > a{

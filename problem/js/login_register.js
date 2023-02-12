@@ -25,13 +25,12 @@ function login_setup(){
 }
 
 function login(){
-    console.log("Login");
 
     const username = document.getElementsByName("login_username")[0].value;
     const password = document.getElementsByName("login_password")[0].value;
     
-    const sender = `?action=check_credentials&user_name=${username}&password=${password}`
-    check_login(sender)
+    const login_rqst = new Request(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${username}&password=${password}`);
+    check_login(login_rqst, "login");
 }
 
 function register_setup(){
@@ -67,7 +66,19 @@ function register(){
     const username = document.getElementsByName("reg_username")[0].value;
     const password = document.getElementsByName("reg_password")[0].value;
     
-    const sender = `?action=check_credentials&user_name=${username}&password=${password}`
-    check_login(sender)
+    const post_body = {
+        action: "register",
+        user_name: username,
+        password: password,
+    }
+
+    const register_rqst = new Request(`https://teaching.maumt.se/apis/access/`, {
+        method: 'POST',
+		body: JSON.stringify(post_body),
+		headers: {"Content-type": "application/json; charset=UTF-8"}
+	});
+
+
+    check_login(register_rqst, "register");
 
 }

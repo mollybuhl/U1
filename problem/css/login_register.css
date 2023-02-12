@@ -40,7 +40,7 @@ input, button{
 }
 
 #connecting{
-    background-color: rgba(245, 245, 245, 0.899);
+    background-color: rgba(245, 245, 245, 0.782);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,11 +49,41 @@ input, button{
 
     position: absolute;
     top: 0;
-    z-index: 10;
+    z-index: 9;
 
     font-size: 28px;
 }
 
-#connecting.unvisable{
+#connecting.invisable{
     display: none;
+}
+
+#feedback{
+    background-color: #C0C8B0;
+    border-radius: 0px 0px 20px 20px;
+    height: 20vh;
+    width: 84vw;
+    font-size: 20px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    z-index: 10;
+}
+
+
+
+#feedback.visable{
+   display: none;
 }
