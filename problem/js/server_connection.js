@@ -1,10 +1,8 @@
 async function check_login(rqst, action){
 
-    connecting();
+    document.querySelector("#connecting").classList.remove("invisable");
 
     const responce = await fetch(rqst);
-
-    console.log(responce);
 
     switch(responce.status){
         case 404:
@@ -18,7 +16,6 @@ async function check_login(rqst, action){
                 document.querySelector("#connecting").classList.add("invisable");
                 start_quiz();
             }else{
-                document.querySelector("#connecting").classList.add("invisable");
                 feedback("Registration Complete. Pleace proceed to login.");
             }
             
@@ -37,15 +34,7 @@ async function check_login(rqst, action){
 
 }
 
-function connecting(){
-    const connect = document.createElement("div");
-    connect.setAttribute("id", "connecting")
-    document.querySelector("body").appendChild(connect);
-    connect.textContent = "Contacting Server..."
-}
-
 function feedback(message){
-    document.querySelector("#connecting").textContent = "";
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");

@@ -22,6 +22,14 @@ function login_setup(){
     `
     document.querySelector(".login > button").addEventListener("click", login);
     document.querySelector(".login > a").addEventListener("click", register_setup);
+
+    
+    const connect = document.createElement("div");
+    connect.setAttribute("id", "connecting");
+    connect.classList.add("invisable");
+    document.querySelector("body").appendChild(connect);
+    connect.textContent = "Contacting Server..."
+    
 }
 
 function login(){

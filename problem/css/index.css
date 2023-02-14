@@ -9,6 +9,7 @@
 
 body{
     margin: 0;
+    padding: 2vh 8vw;
     height: 100vh;
     font-family: RobotoCondensed_regular;
 
@@ -16,7 +17,7 @@ body{
 }
 
 header{
-    margin: 2vh 8vw;
+    margin: 0;
 
     display: flex;
     justify-content: space-between;
@@ -36,19 +37,22 @@ header{
 }
 
 #main{
-    margin: 10vh 8vw;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 footer{
-    margin: 2vh 8vw;
+    margin: 0;
     height: 10vh;
     position: fixed;
     bottom: 0;
 }
 
+footer > p{
+    margin: 0;
+}
 footer > p > a{
     text-decoration: underline;
     color: blue;
