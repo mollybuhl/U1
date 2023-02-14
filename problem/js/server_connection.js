@@ -2,7 +2,7 @@ async function check_login(rqst, action){
 
     document.querySelector("#connecting").classList.remove("invisable");
 
-    const responce = await fetch(rqst);
+    const responce = await get_resource(rqst);
 
     switch(responce.status){
         case 404:
@@ -18,7 +18,6 @@ async function check_login(rqst, action){
             }else{
                 feedback("Registration Complete. Pleace proceed to login.");
             }
-            
             break;
         case 418:
             feedback("The server thinks it is not a teapot!");
@@ -32,6 +31,12 @@ async function check_login(rqst, action){
             console.log("BUG");
     }
 
+}
+
+async function get_resource(rqst){
+    const responce = await fetch(rqst);
+    return responce;
+    
 }
 
 function feedback(message){

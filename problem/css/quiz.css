@@ -2,3 +2,49 @@ body.quiz{
     background-image: url("../media/backdrop_quiz.jpg");
     backdrop-filter: blur(10px);
 }
+
+#logout_bar{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 3px;
+    height: 5vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logout_bar > button{
+    border-radius: 5px;
+    width: 30%;
+}
+
+.image{
+    margin-top: 15vh;
+    margin-bottom: 2vh;
+    height: 35vh;
+    border-radius: 10px;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6vh 6vh;
+
+    gap: 2px;
+}
+
+.options > div{
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 10px;
+    height: 6vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
