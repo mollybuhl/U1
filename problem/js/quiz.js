@@ -15,6 +15,12 @@ function start_quiz(){
         </div>
     `;
 
+    const answer_feedback = document.createElement("div");
+    answer_feedback.classList.add("answer_feedback");
+    answer_feedback.classList.add("hidden");
+    answer_feedback.innerHTML = `<p></p><button></button>`;
+    document.querySelector("#wrapper").appendChild(answer_feedback);
+
     fill_quiz();
 }
 
@@ -44,17 +50,25 @@ async function fill_quiz(){
             const breed_name = event.target;
             console.log(breed_name.textContent);
             if(breed_name.textContent === breed.name){
-                console.log("Correct!");
+                
+
+                document.querySelector(".answer_feedback").classList.remove("hidden");
+                document.querySelector(".answer_feedback").classList.add("true");
+                document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
+                document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
             }else{
-                console.log("False!");
+                document.querySelector("#connecting").classList.remove("invisable");
+                
+                document.querySelector(".answer_feedback > p").textContent = "INCORRECT!";
+                document.querySelector(".answer_feedback > button").textContent = "Try Again";
+                document.querySelector(".answer_feedback").style.backgroundColor = "red";
+
             }
         }
 
 }
 
-function fill_options(){
-    
-}
+
 
 function random_number(max) {
     return Math.floor((Math.random() * max)+1);

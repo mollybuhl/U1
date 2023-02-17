@@ -43,7 +43,7 @@ async function get_resource(rqst){
     
 }
 
-function feedback(message){
+function feedback(message,){
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");
