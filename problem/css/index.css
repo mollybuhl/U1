@@ -8,16 +8,23 @@
 }
 
 body{
+    background-color: black;
+    margin: 0;
+}
+
+#wrapper{
     margin: 0;
     padding: 2vh 8vw;
     height: 100vh;
-    font-family: RobotoCondensed_regular;
-
+    border-radius: 25px;
     position: relative;
+
+    font-family: RobotoCondensed_regular;
 }
 
 header{
     margin: 0;
+    margin-bottom: 2vh;
 
     display: flex;
     justify-content: space-between;
@@ -41,6 +48,11 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
 }
 
 footer{

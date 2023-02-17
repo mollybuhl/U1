@@ -1,8 +1,8 @@
 function login_setup(){
     document.querySelector("#main").innerHTML ="";
 
-    document.querySelector("body").classList.remove("register");
-    document.querySelector("body").classList.add("login");
+    document.querySelector("#wrapper").classList.remove("register");
+    document.querySelector("#wrapper").classList.add("login");
 
     const login_setup = document.createElement("div");
     login_setup.classList.add("login");
@@ -16,7 +16,7 @@ function login_setup(){
     </label></div>
 
     <p>Let the magic start!</p>
-    <button id="login_btn">Login</button>
+    <button>Login</button>
 
     <a>New to this? Register for free</a>
     `
@@ -27,8 +27,8 @@ function login_setup(){
     const connect = document.createElement("div");
     connect.setAttribute("id", "connecting");
     connect.classList.add("invisable");
-    document.querySelector("body").appendChild(connect);
-    connect.textContent = "Contacting Server..."
+    document.querySelector("#wrapper").appendChild(connect);
+    connect.innerHTML= `<div>Contacting Server...</div>`;
     
 }
 
@@ -44,8 +44,8 @@ function login(){
 function register_setup(){
 
     document.querySelector("#main").innerHTML ="";
-    document.querySelector("body").classList.remove("login");
-    document.querySelector("body").classList.add("register");
+    document.querySelector("#wrapper").classList.remove("login");
+    document.querySelector("#wrapper").classList.add("register");
 
 
     const register_setup = document.createElement("div");
@@ -60,7 +60,7 @@ function register_setup(){
         </label></div>
 
         <p>Ready when you are</p>
-        <button id="reg_btn">Register</button>
+        <button>Register</button>
 
         <a>Already have an account? Go to login</a>
     `

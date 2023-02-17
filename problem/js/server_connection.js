@@ -26,6 +26,10 @@ async function check_login(rqst, action){
             feedback("Sorry that name is taken. Please try another one.");        
             console.log("already a user");
             break;
+        case 400:
+            feedback("Please enter username and password.");        
+            console.log("bad request");
+            break;
         default:
             feedback("Sorry something went wrong, please try again."); 
             console.log("BUG");
@@ -43,7 +47,7 @@ function feedback(message){
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");
-    feedback.innerHTML = `<p>${message}<p> <button>close</button>`
+    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">close</button>`
     document.querySelector("body").appendChild(feedback);
 
     feedback.querySelector("button").addEventListener("click", close)

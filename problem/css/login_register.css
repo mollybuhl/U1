@@ -1,18 +1,13 @@
-body.login{
+#wrapper.login{
     background-image: url(../media/backdrop_login.jpg);
     backdrop-filter: blur(10px);
     
 }
 
-body.register{
-    background-image: url(../media/backdrop_reg.jpg);
+#wrapper.register{
+    background-image: url(../media/backdrop_reg1.jpg);
     backdrop-filter: blur(10px);
     
-}
-
-h1{
-    text-align: center;
-    font-size: 40px;
 }
 
 label{
@@ -55,16 +50,27 @@ input, button{
     font-size: 28px;
 }
 
+#connecting > div{
+    background-color: whitesmoke;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #connecting.invisable{
     display: none;
 }
 
 #feedback{
     background-color: #C0C8B0;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 15px;
     height: 20vh;
     width: 84vw;
-    font-size: 20px;
+    font-size: 18px;
+    font-family: RobotoCondensed_regular;
+    text-align: center;
 
     padding: 10px;
 
@@ -83,7 +89,19 @@ input, button{
     z-index: 10;
 }
 
+#feedback > button#close_feedback{
+    padding: 1vh;
+    height: 7vh;
+    font-size: 20px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#feedback  > p {
+    margin: 2vh;
+}
 
 #feedback.visable{
    display: none;
