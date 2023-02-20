@@ -2,6 +2,7 @@ function login_setup(){
     document.querySelector("#main").innerHTML ="";
 
     document.querySelector("#wrapper").classList.remove("register");
+    document.querySelector("#wrapper").classList.remove("quiz");
     document.querySelector("#wrapper").classList.add("login");
 
     const login_setup = document.createElement("div");
@@ -12,7 +13,7 @@ function login_setup(){
     <h1>LOGIN</h1>
     <div><label> User Name: <input type="text" name="login_username"/>
     </label></div>
-    <div><label> Password: <input type="text" name="login_password"/>
+    <div><label> Password: <input type="password" name="login_password"/>
     </label></div>
 
     <p>Let the magic start!</p>
@@ -38,7 +39,7 @@ function login(){
     const password = document.getElementsByName("login_password")[0].value;
     
     const login_rqst = new Request(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${username}&password=${password}`);
-    check_login(login_rqst, "login");
+    check_login(login_rqst, "login", username);
 }
 
 function register_setup(){

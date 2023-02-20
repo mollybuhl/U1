@@ -3,10 +3,19 @@
     backdrop-filter: blur(10px);
 }
 
+#wrapper.quiz > #main{
+    background-image: url("../media/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    display: flex;
+}
+
 #logout_bar{
     background-color: whitesmoke;
     border-radius: 5px;
-    padding: 3px;
+    padding: 4px;
     height: 5vh;
 
     display: flex;
@@ -16,13 +25,17 @@
 
 #logout_bar > button{
     border-radius: 5px;
-    width: 30%;
+    border: 1px solid grey;
+    width: 25%;
+    font-size: 17px;
+    
 }
 
 .image{
     margin-top: 15vh;
     margin-bottom: 2vh;
-    height: 35vh;
+    flex-basis: 35vh;
+    flex-grow: inherit;
     border-radius: 15px;
 
     background-position: center;
@@ -50,6 +63,10 @@
 
     text-align: center;
     padding: 5px;
+}
+
+.options > div:hover{
+    background-color: rgb(71, 89, 71);
 }
 
 .answer_feedback.hidden{

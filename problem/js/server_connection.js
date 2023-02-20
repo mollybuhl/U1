@@ -1,8 +1,11 @@
-async function check_login(rqst, action){
+async function check_login(rqst, action, username){
 
     document.querySelector("#connecting").classList.remove("invisable");
 
     const responce = await get_resource(rqst);
+    
+    localStorage.setItem("user", username);
+    const user = localStorage.getItem("user");
 
     switch(responce.status){
         case 404:
@@ -14,7 +17,9 @@ async function check_login(rqst, action){
         case 200:
             if(action === "login"){
                 document.querySelector("#connecting").classList.add("invisable");
-                start_quiz();
+                localStorage.setItem("show_quiz", "true")
+
+                start_quiz(user);
             }else{
                 feedback("Registration Complete. Pleace proceed to login.");
             }
@@ -57,3 +62,9 @@ function feedback(message,){
     }
     
 }
+
+/*
+window.localStorage.setItem("name", "molly");
+localStorage.setItem("users", JSON.stringify({name: "molly", password: "molly"}));
+const user = JSON.parse(localStorage.getItem("users"));
+document.getElementById("#main").textContent = user.name;*/
