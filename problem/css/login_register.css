@@ -1,13 +1,9 @@
 #wrapper.login{
-    background-image: url(../media/backdrop_login.jpg);
-    backdrop-filter: blur(10px);
-    
+    background-image: url(../media/backdrop_login1.jpg);    
 }
 
 #wrapper.register{
-    background-image: url(../media/backdrop_reg1.jpg);
-    backdrop-filter: blur(10px);
-    
+    background-image: url(../media/backdrop_reg.jpg);    
 }
 
 label{

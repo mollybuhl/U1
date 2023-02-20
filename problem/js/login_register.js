@@ -57,7 +57,7 @@ function register_setup(){
         <h1>REGISTER</h1>
         <div><label> User Name: <input type="text" name="reg_username"/>
         </label></div>
-        <div><label> Password: <input type="text" name="reg_password"/>
+        <div><label> Password: <input type="password" name="reg_password"/>
         </label></div>
 
         <p>Ready when you are</p>

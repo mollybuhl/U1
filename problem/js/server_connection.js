@@ -62,9 +62,3 @@ function feedback(message,){
     }
     
 }
-
-/*
-window.localStorage.setItem("name", "molly");
-localStorage.setItem("users", JSON.stringify({name: "molly", password: "molly"}));
-const user = JSON.parse(localStorage.getItem("users"));
-document.getElementById("#main").textContent = user.name;*/

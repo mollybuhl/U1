@@ -20,6 +20,8 @@ function start_quiz(user){
     answer_feedback.classList.add("hidden");
     answer_feedback.innerHTML = `<p></p><button></button>`;
     document.querySelector("#wrapper").appendChild(answer_feedback);
+    document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz);
+
 
     document.querySelector("#logout").addEventListener("click", log_out);
 
@@ -27,7 +29,13 @@ function start_quiz(user){
 }
 
 async function fill_quiz(){
-    const breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)];
+    document.querySelector(".answer_feedback").classList.add("hidden");
+    document.querySelectorAll(".options > div").forEach(div => {
+        div.textContent = "";
+    })
+
+    let breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)];
+    console.log(breed);
 
     const rqst = new Request(`https://dog.ceo/api/breed/${breed.url}/images`);
     const resource = await get_resource(rqst);
@@ -44,33 +52,28 @@ async function fill_quiz(){
             document.querySelector(`#o${i}`).textContent = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)].name};
         }
 
-        document.querySelectorAll(".options > div").forEach(option => {
-            option.addEventListener("click", check_answer);
-        })
+    document.querySelectorAll(".options > div").forEach(option => {
+        option.addEventListener("click", check_answer);
+    })
 
-        function check_answer(event){
-            const breed_name = event.target;
+    function check_answer(event){
+        const breed_name = event.target;
             
-            if(breed_name.textContent === breed.name){
+        if(breed_name.textContent === breed.name){
                 
 
-                document.querySelector(".answer_feedback").classList.remove("hidden");
-                document.querySelector(".answer_feedback").classList.add("true");
-                document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
-                document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
+            document.querySelector(".answer_feedback").classList.remove("hidden");
+            document.querySelector(".answer_feedback").style.backgroundColor =  "seaGreen";
+            document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
+            document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
 
-                document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz());
-            }else{
-                document.querySelector("#connecting").classList.remove("invisable");
-                
-                document.querySelector(".answer_feedback > p").textContent = "INCORRECT:(";
-                document.querySelector(".answer_feedback > button").textContent = "One more";
-                document.querySelector(".answer_feedback").style.backgroundColor = "red";
-
-                document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz());
-
-            }
+        }else{
+            document.querySelector(".answer_feedback").classList.remove("hidden");
+            document.querySelector(".answer_feedback").style.backgroundColor = "tomato";
+            document.querySelector(".answer_feedback > p").textContent = "INCORRECT:(";
+            document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
         }
+    }
 
 }
 

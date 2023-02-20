@@ -1,6 +1,5 @@
 #wrapper.quiz{
-    background-image: url("../media/backdrop_quiz1.jpg");
-    backdrop-filter: blur(10px);
+    background-image: url(../media/backdrop_quiz1.jpg);
 }
 
 #wrapper.quiz > #main{
@@ -47,8 +46,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 6vh 6vh;
-
     gap: 4px;
+
+    cursor: pointer;
 }
 
 .options > div{
@@ -100,4 +100,7 @@
 
 .answer_feedback.true{
     background-color: #779763;
+}
+.answer_feedback.false{
+    background-color: #976363;
 }
