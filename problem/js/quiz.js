@@ -6,12 +6,14 @@ function start_quiz(user){
 
     document.querySelector("#main").innerHTML =`
         <div id="logout_bar"><p>${user}</p> <button id="logout">logout</button></div>
-        <div class="image"></div>
-        <div class="options">
-            <div id="o1"></div>
-            <div id="o2"></div>
-            <div id="o3"></div>
-            <div id="o4"></div>
+        <div id="question_wrapper">
+            <div class="image"></div>
+            <div class="options">
+                <div id="o1"></div>
+                <div id="o2"></div>
+                <div id="o3"></div>
+                <div id="o4"></div>
+            </div>
         </div>
     `;
 
@@ -22,6 +24,7 @@ function start_quiz(user){
     document.querySelector("#wrapper").appendChild(answer_feedback);
     document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz);
 
+    create_connecting_div();
 
     document.querySelector("#logout").addEventListener("click", log_out);
 
@@ -29,20 +32,20 @@ function start_quiz(user){
 }
 
 async function fill_quiz(){
+    document.querySelector("#wrapper > #connecting").classList.add("invisable");
     document.querySelector(".answer_feedback").classList.add("hidden");
     document.querySelectorAll(".options > div").forEach(div => {
         div.textContent = "";
     })
 
     let breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)];
-    console.log(breed);
 
     const rqst = new Request(`https://dog.ceo/api/breed/${breed.url}/images`);
     const resource = await get_resource(rqst);
     const responce = await resource.json();
     const image_url = responce.message[0];
 
-    document.querySelector(".image").style.backgroundImage = `url(${image_url})`;
+    document.querySelector(".image").innerHTML = `<img src="${image_url}">`;
     const correct_option = document.querySelector(`#o${random_number(4)}`);
     correct_option.textContent = `${breed.name}`;
     
@@ -61,13 +64,14 @@ async function fill_quiz(){
             
         if(breed_name.textContent === breed.name){
                 
-
+            document.querySelector("#wrapper > #connecting").classList.remove("invisable");
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor =  "seaGreen";
             document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
             document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
 
         }else{
+            document.querySelector("#connecting").classList.remove("invisable");
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor = "tomato";
             document.querySelector(".answer_feedback > p").textContent = "INCORRECT:(";

@@ -20,6 +20,9 @@ body{
     position: relative;
 
     font-family: RobotoCondensed_regular;
+
+    overflow: scroll;
+    
 }
 
 header{
@@ -48,6 +51,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
 }
 
 h1{
@@ -57,9 +61,10 @@ h1{
 
 footer{
     margin: 0;
-    height: 10vh;
+    height: 8vh;
     position: fixed;
     bottom: 0;
+    
 }
 
 footer > p{

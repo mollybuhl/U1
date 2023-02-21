@@ -12,7 +12,6 @@ async function check_login(rqst, action, username){
             document.querySelector("#connecting").classList.add("invisable");
             document.querySelector(".login > p").textContent = "Wrong user name or password";
             document.querySelector(".login > p").style.backgroundColor = "white";
-            
             break;
         case 200:
             if(action === "login"){
@@ -28,16 +27,13 @@ async function check_login(rqst, action, username){
             feedback("The server thinks it is not a teapot!");
             break;
         case 409:
-            feedback("Sorry that name is taken. Please try another one.");        
-            console.log("already a user");
+            feedback("Sorry that name is taken. Please try with another one.");        
             break;
         case 400:
             feedback("Please enter username and password.");        
-            console.log("bad request");
             break;
         default:
             feedback("Sorry something went wrong, please try again."); 
-            console.log("BUG");
     }
 
 }
@@ -48,16 +44,18 @@ async function get_resource(rqst){
     
 }
 
+
+//slå ihop med quiz feedback
 function feedback(message,){
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");
-    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">close</button>`
+    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">CLOSE</button>`
     document.querySelector("body").appendChild(feedback);
 
     feedback.querySelector("button").addEventListener("click", close)
     function close(){
-        feedback.classList.add("visable");
+        feedback.classList.add("invisable");
         document.querySelector("#connecting").classList.add("invisable");
     }
     

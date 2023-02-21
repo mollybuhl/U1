@@ -25,11 +25,7 @@ function login_setup(){
     document.querySelector(".login > a").addEventListener("click", register_setup);
 
     
-    const connect = document.createElement("div");
-    connect.setAttribute("id", "connecting");
-    connect.classList.add("invisable");
-    document.querySelector("#wrapper").appendChild(connect);
-    connect.innerHTML= `<div>Contacting Server...</div>`;
+    create_connecting_div();
     
 }
 
@@ -60,7 +56,7 @@ function register_setup(){
         <div><label> Password: <input type="password" name="reg_password"/>
         </label></div>
 
-        <p>Ready when you are</p>
+        <p>Ready when you are...</p>
         <button>Register</button>
 
         <a>Already have an account? Go to login</a>
@@ -90,4 +86,12 @@ function register(){
 
     check_login(register_rqst, "register");
 
+}
+
+function create_connecting_div(){
+    const connect = document.createElement("div");
+    connect.setAttribute("id", "connecting");
+    connect.classList.add("invisable");
+    document.querySelector("#wrapper").appendChild(connect);
+    connect.innerHTML= `<div>Contacting Server...</div>`;
 }

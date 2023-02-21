@@ -27,19 +27,24 @@
     border: 1px solid grey;
     width: 25%;
     font-size: 17px;
-    
+}
+#question_wrapper{
+  
 }
 
 .image{
     margin-top: 15vh;
     margin-bottom: 2vh;
-    flex-basis: 35vh;
-    flex-grow: inherit;
-    border-radius: 15px;
+    
 
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.image > img{
+    width: 100%;
+    border-radius: 15px;
 }
 
 .options{
@@ -75,13 +80,14 @@
 
 .answer_feedback{
     border-radius: 15px;
-    height: 15vh;
+    height: 18vh;
     width: 84vw;
-    font-size: 18px;
+    font-size: 24px;
     font-family: RobotoCondensed_regular;
     text-align: center;
 
-    padding: 10px;
+    padding: 3vh;
+
 
     display: flex;
     flex-direction: column;
@@ -96,6 +102,15 @@
     margin: auto;
     
     z-index: 10;
+}
+.answer_feedback > p{
+    margin: 0;
+    margin-bottom: 1vh;
+}
+.answer_feedback > button{
+    font-size: 18px;
+    height: 10vh;
+    font-family: RobotoCondensed_regular;
 }
 
 .answer_feedback.true{

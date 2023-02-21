@@ -16,6 +16,7 @@ input, button{
     display: block;
     width: 100%;
     height: 4vh;
+    font-family: RobotoCondensed_regular;
 }
 
 .login > a, .register > a{
@@ -24,6 +25,7 @@ input, button{
     text-align: center;
 
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .login > p, .register > p{
@@ -60,7 +62,7 @@ input, button{
 }
 
 #feedback{
-    background-color: #C0C8B0;
+    background-color: #b1ce9d;
     border-radius: 15px;
     height: 20vh;
     width: 84vw;
@@ -99,6 +101,6 @@ input, button{
     margin: 2vh;
 }
 
-#feedback.visable{
+#feedback.invisable{
    display: none;
 }
