@@ -46,15 +46,21 @@ input, button{
     z-index: 9;
 
     font-size: 28px;
+    font-family: RobotoCondensed_regular;
 }
 
 #connecting > div{
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
+    padding: 2vh;
     border-radius: 10px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#connecting > div.hidden{
+    display: none;
 }
 
 #connecting.invisable{

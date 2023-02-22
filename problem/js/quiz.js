@@ -1,5 +1,8 @@
 function start_quiz(user){
 
+    //create_connecting_div();
+    //document.querySelector("#connecting").classList.add("invisable");
+
     document.querySelector("#main").innerHTML ="";
     document.querySelector("#wrapper").classList.remove("login");
     document.querySelector("#wrapper").classList.add("quiz")
@@ -17,7 +20,6 @@ function start_quiz(user){
         </div>
     `;
 
-    create_connecting_div();
     answer_feedback();
 
     document.querySelector("#logout").addEventListener("click", log_out);
@@ -26,7 +28,9 @@ function start_quiz(user){
 }
 
 async function fill_quiz(){
-    document.querySelector("#wrapper > #connecting").classList.add("invisable");
+    info_finding_image();
+    document.querySelector("#info_finding_image").classList.remove("hidden");            
+
     document.querySelector(".answer_feedback").classList.add("hidden");
     document.querySelectorAll(".options > div").forEach(div => {
         div.textContent = "";
@@ -42,7 +46,8 @@ async function fill_quiz(){
     document.querySelector(".image").innerHTML = `<img src="${image_url}">`;
     const correct_option = document.querySelector(`#o${random_number(4)}`);
     correct_option.textContent = `${breed.name}`;
-    
+
+    document.querySelector("#info_finding_image").classList.add("hidden");            
 
     for(let i = 1 ; i<5 ; i++){
         if(document.querySelector(`#o${i}`).textContent === ""){
@@ -65,15 +70,16 @@ async function fill_quiz(){
             
         if(breed_name.textContent === breed.name){
                 
-            document.querySelector("#wrapper > #connecting").classList.remove("invisable");
-            
+           document.querySelector("#info_finding_image").classList.remove("hidden");
+           document.querySelector("#info_finding_image > div").classList.add("hidden");            
             
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor =  "seaGreen";
             document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
 
         }else{
-            document.querySelector("#connecting").classList.remove("invisable");
+            document.querySelector("#info_finding_image").classList.remove("hidden");
+            document.querySelector("#info_finding_image > div").classList.add("hidden");            
             
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor = "tomato";
@@ -82,8 +88,6 @@ async function fill_quiz(){
     }
 
 }
-
-
 
 function random_number(max) {
     return Math.floor((Math.random() * max)+1);
@@ -104,4 +108,14 @@ function answer_feedback(){
     document.querySelector("#wrapper").appendChild(answer_feedback);
 
     document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz);
+}
+
+function info_finding_image(){
+    const info_div = document.createElement("div");
+    info_div.setAttribute("id", "info_finding_image");
+    info_div.classList.add("hidden");
+    document.querySelector("body").appendChild(info_div);
+    info_div.innerHTML= `<div>Getting a random image...</div>`;
+
+    document.querySelector("#info_finding_image > div").classList.remove("hidden");
 }

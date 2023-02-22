@@ -22,6 +22,9 @@ body{
     font-family: RobotoCondensed_regular;
 
     overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -52,6 +55,7 @@ header{
     flex-direction: column;
     justify-content: flex-start;
 
+    flex-basis: 80vh;
 }
 
 h1{
@@ -60,11 +64,8 @@ h1{
 }
 
 footer{
-    margin: 0;
-    height: 8vh;
-    position: fixed;
-    bottom: 0;
-    
+    margin-top: 4vh;
+    height: 8vh;    
 }
 
 footer > p{

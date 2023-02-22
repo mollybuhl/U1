@@ -92,6 +92,6 @@ function create_connecting_div(){
     const connect = document.createElement("div");
     connect.setAttribute("id", "connecting");
     connect.classList.add("invisable");
-    document.querySelector("#wrapper").appendChild(connect);
+    document.querySelector("body").appendChild(connect);
     connect.innerHTML= `<div>Contacting Server...</div>`;
 }

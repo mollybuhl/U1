@@ -1,6 +1,7 @@
 async function check_login(rqst, action, username){
 
     document.querySelector("#connecting").classList.remove("invisable");
+   // document.querySelector("#connecting > div").textContent = "Contacting Server"
 
     const responce = await get_resource(rqst);
     

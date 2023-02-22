@@ -3,10 +3,10 @@
 }
 
 #wrapper.quiz > #main{
-    background-image: url("../media/logo.png");
+   /* background-image: url("../media/logo.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;*/
 
     display: flex;
 }
@@ -116,4 +116,39 @@
 }
 .answer_feedback.false{
     background-color: #976363;
+}
+
+#info_finding_image{
+    background-color: rgba(245, 245, 245, 0.782);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    font-size: 28px;
+    font-family: RobotoCondensed_regular;
+}
+
+#info_finding_image.hidden{
+    display: none;
+}
+
+#info_finding_image > div{
+    background-color: rgb(255, 255, 255);
+    padding: 2vh;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#info_finding_image > div.hidden{
+    display: none;
 }
