@@ -10,7 +10,9 @@ function start_quiz(user){
     document.querySelector("#main").innerHTML =`
         <div id="logout_bar"><p>${user}</p> <button id="logout">logout</button></div>
         <div id="question_wrapper">
-            <div class="image"></div>
+            <div class="image">
+                <img src="./media/logo.png">
+            </div>
             <div class="options">
                 <div id="o1"></div>
                 <div id="o2"></div>
@@ -29,7 +31,9 @@ function start_quiz(user){
 
 async function fill_quiz(){
     info_finding_image();
-    document.querySelector("#info_finding_image").classList.remove("hidden");            
+    document.querySelector("#info_finding_image").classList.remove("hidden");    
+    
+    document.querySelector(".image").innerHTML = `<img src="./media/logo.png">`;
 
     document.querySelector(".answer_feedback").classList.add("hidden");
     document.querySelectorAll(".options > div").forEach(div => {
@@ -39,9 +43,12 @@ async function fill_quiz(){
     let breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)];
 
     const rqst = new Request(`https://dog.ceo/api/breed/${breed.url}/images`);
-    const resource = await get_resource(rqst);
-    const responce = await resource.json();
-    const image_url = responce.message[0];
+    const responce = await get_resource(rqst);
+    const resource = await responce.json();
+
+    let total_images = resource.message.length;
+    const image_url = resource.message[random_number(total_images)];
+   
 
     document.querySelector(".image").innerHTML = `<img src="${image_url}">`;
     const correct_option = document.querySelector(`#o${random_number(4)}`);
@@ -49,17 +56,29 @@ async function fill_quiz(){
 
     document.querySelector("#info_finding_image").classList.add("hidden");            
 
+    let all_breed_options = [breed.name]
+
     for(let i = 1 ; i<5 ; i++){
         if(document.querySelector(`#o${i}`).textContent === ""){
-            let alt_breed = breed;
 
-            while(alt_breed === breed){
-                alt_breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)].name
-            };
+           fill_alt();
+            function fill_alt(){
+                let new_alt = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)].name;
+                if(!all_breed_options.includes(new_alt)){
+                    all_breed_options.push(new_alt)
+    
+                    document.querySelector(`#o${i}`).textContent = new_alt;
+                    console.log(all_breed_options);
+                }else{
+                    fill_alt();
+                }
+            }
             
-            document.querySelector(`#o${i}`).textContent = alt_breed;
-        }  
-    }
+            
+
+        }
+    }  
+    
 
     document.querySelectorAll(".options > div").forEach(option => {
         option.addEventListener("click", check_answer);
