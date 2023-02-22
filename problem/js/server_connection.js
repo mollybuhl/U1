@@ -41,19 +41,18 @@ async function check_login(rqst, action, username){
 async function get_resource(rqst){
     const responce = await fetch(rqst);
     return responce;
-    
 }
 
 
-//slå ihop med quiz feedback
-function feedback(message,){
+function feedback(message){
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");
-    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">CLOSE</button>`
+    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">CLOSE</button>`;
     document.querySelector("body").appendChild(feedback);
 
-    feedback.querySelector("button").addEventListener("click", close)
+    feedback.querySelector("button").addEventListener("click", close);
+
     function close(){
         feedback.classList.add("invisable");
         document.querySelector("#connecting").classList.add("invisable");

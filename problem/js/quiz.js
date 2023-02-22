@@ -17,14 +17,8 @@ function start_quiz(user){
         </div>
     `;
 
-    const answer_feedback = document.createElement("div");
-    answer_feedback.classList.add("answer_feedback");
-    answer_feedback.classList.add("hidden");
-    answer_feedback.innerHTML = `<p></p><button></button>`;
-    document.querySelector("#wrapper").appendChild(answer_feedback);
-    document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz);
-
     create_connecting_div();
+    answer_feedback();
 
     document.querySelector("#logout").addEventListener("click", log_out);
 
@@ -52,8 +46,15 @@ async function fill_quiz(){
 
     for(let i = 1 ; i<5 ; i++){
         if(document.querySelector(`#o${i}`).textContent === ""){
-            document.querySelector(`#o${i}`).textContent = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)].name};
-        }
+            let alt_breed = breed;
+
+            while(alt_breed === breed){
+                alt_breed = ALL_BREEDS[random_number(ALL_BREEDS.length - 1)].name
+            };
+            
+            document.querySelector(`#o${i}`).textContent = alt_breed;
+        }  
+    }
 
     document.querySelectorAll(".options > div").forEach(option => {
         option.addEventListener("click", check_answer);
@@ -65,17 +66,18 @@ async function fill_quiz(){
         if(breed_name.textContent === breed.name){
                 
             document.querySelector("#wrapper > #connecting").classList.remove("invisable");
+            
+            
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor =  "seaGreen";
             document.querySelector(".answer_feedback > p").textContent = "CORRECT!";
-            document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
 
         }else{
             document.querySelector("#connecting").classList.remove("invisable");
+            
             document.querySelector(".answer_feedback").classList.remove("hidden");
             document.querySelector(".answer_feedback").style.backgroundColor = "tomato";
-            document.querySelector(".answer_feedback > p").textContent = "INCORRECT:(";
-            document.querySelector(".answer_feedback > button").textContent = "ONE MORE";
+            document.querySelector(".answer_feedback > p").textContent = "INCORRECT:(";            
         }
     }
 
@@ -91,4 +93,15 @@ function log_out(){
     localStorage.removeItem("user");
     localStorage.setItem("show_quiz", "false");
     login_setup();
+}
+
+
+function answer_feedback(){
+    const answer_feedback = document.createElement("div");
+    answer_feedback.classList.add("answer_feedback");
+    answer_feedback.classList.add("hidden");
+    answer_feedback.innerHTML = `<p></p><button>ONE MORE</button>`;
+    document.querySelector("#wrapper").appendChild(answer_feedback);
+
+    document.querySelector(".answer_feedback > button").addEventListener("click", fill_quiz);
 }
