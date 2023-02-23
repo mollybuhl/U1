@@ -68,7 +68,6 @@ async function fill_quiz(){
                     all_breed_options.push(new_alt)
     
                     document.querySelector(`#o${i}`).textContent = new_alt;
-                    console.log(all_breed_options);
                 }else{
                     fill_alt();
                 }

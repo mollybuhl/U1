@@ -3,10 +3,10 @@
 }
 
 #wrapper.quiz > #main{
-   /* background-image: url("../media/logo.png");
+   background-image: url("../media/logo.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;*/
+    background-size: contain;
 
     display: flex;
 }
@@ -48,7 +48,6 @@
 .options{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 6vh 6vh;
     gap: 4px;
 
     cursor: pointer;
@@ -58,14 +57,13 @@
     background-color: #779763;
     border: 1px solid #606f60;
     border-radius: 10px;
-    height: 6vh;
-
+    padding: 5px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 
     text-align: center;
-    padding: 5px;
 }
 
 .options > div:hover{

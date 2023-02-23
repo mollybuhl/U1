@@ -21,14 +21,14 @@ async function check_login(rqst, action, username){
 
                 start_quiz(user);
             }else{
-                feedback("Registration Complete. Pleace proceed to login.");
+                feedback("Registration Complete.", "Please proceed to login.");
             }
             break;
         case 418:
             feedback("The server thinks it is not a teapot!");
             break;
         case 409:
-            feedback("Sorry that name is taken. Please try with another one.");        
+            feedback("Sorry that name is taken.","Please try with another one.");        
             break;
         case 400:
             feedback("Please enter username and password.");        
@@ -45,11 +45,11 @@ async function get_resource(rqst){
 }
 
 
-function feedback(message){
+function feedback(message_line1, message_line2 =""){
 
     const feedback = document.createElement("div");
     feedback.setAttribute("id", "feedback");
-    feedback.innerHTML = `<p>${message}</p> <button id="close_feedback">CLOSE</button>`;
+    feedback.innerHTML = `<p>${message_line1} <br>${message_line2} </p> <button id="close_feedback">CLOSE</button>`;
     document.querySelector("body").appendChild(feedback);
 
     feedback.querySelector("button").addEventListener("click", close);
