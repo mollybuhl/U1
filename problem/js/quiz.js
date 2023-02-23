@@ -6,6 +6,8 @@ function start_quiz(user){
     document.querySelector("#main").innerHTML ="";
     document.querySelector("#wrapper").classList.remove("login");
     document.querySelector("#wrapper").classList.add("quiz")
+    document.querySelector("#main").classList.add("background")
+
 
     document.querySelector("#main").innerHTML =`
         <div id="logout_bar"><p>${user}</p> <button id="logout">logout</button></div>
@@ -30,6 +32,7 @@ function start_quiz(user){
 }
 
 async function fill_quiz(){
+    document.querySelector("#main").classList.add("background");
     info_finding_image();
     document.querySelector("#info_finding_image").classList.remove("hidden");    
     
@@ -44,17 +47,28 @@ async function fill_quiz(){
 
     const rqst = new Request(`https://dog.ceo/api/breed/${breed.url}/images`);
     const responce = await get_resource(rqst);
+    console.log(responce);
     const resource = await responce.json();
+    console.log(resource);
 
     let total_images = resource.message.length;
-    const image_url = resource.message[random_number(total_images)];
-   
+    console.log(total_images - 1);
+    const image_url = resource.message[random_number(total_images - 1)];
+    console.log(image_url);
 
-    document.querySelector(".image").innerHTML = `<img src="${image_url}">`;
+    if(image_url === undefined){
+        document.querySelector(".image").innerHTML = `<img src="./media/logo.png">`;
+    }else{
+        document.querySelector(".image").innerHTML = ``;
+        document.querySelector(".image").innerHTML = `<img src="${image_url}">`;
+    }
+
+    
     const correct_option = document.querySelector(`#o${random_number(4)}`);
     correct_option.textContent = `${breed.name}`;
 
-    document.querySelector("#info_finding_image").classList.add("hidden");            
+    document.querySelector("#info_finding_image").classList.add("hidden");  
+            
 
     let all_breed_options = [breed.name]
 
@@ -72,9 +86,6 @@ async function fill_quiz(){
                     fill_alt();
                 }
             }
-            
-            
-
         }
     }  
     

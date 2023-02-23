@@ -3,12 +3,13 @@
 }
 
 #wrapper.quiz > #main{
-   background-image: url("../media/logo.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+   
 
     display: flex;
+}
+
+#wrapper.quiz > #main.background{
+  
 }
 
 #logout_bar{
