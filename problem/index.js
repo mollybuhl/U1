@@ -1,5 +1,5 @@
 if(localStorage.getItem("show_quiz") === "true"){
-    start_quiz(localStorage.getItem("user"));
+    quiz_setup(localStorage.getItem("user"));
 }else{
     login_setup();
 }

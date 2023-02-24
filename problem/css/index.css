@@ -18,25 +18,22 @@ body{
     height: 100vh;
     border-radius: 25px;
     position: relative;
-
-    font-family: RobotoCondensed_regular;
-
     overflow: scroll;
 
     display: flex;
     flex-direction: column;
     
+    font-family: RobotoCondensed_regular;    
 }
 
 header{
     margin: 0;
     margin-bottom: 2vh;
+    height: 6vh;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    height: 6vh;
 }
 
 #logo{
@@ -54,7 +51,6 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     flex-basis: 80vh;
 }
 

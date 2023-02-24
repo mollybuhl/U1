@@ -63,7 +63,7 @@ input, button{
     display: none;
 }
 
-#connecting.invisable{
+#connecting.hidden{
     display: none;
 }
 
@@ -75,7 +75,6 @@ input, button{
     font-size: 18px;
     font-family: RobotoCondensed_regular;
     text-align: center;
-
     padding: 10px;
 
     display: flex;
@@ -107,6 +106,6 @@ input, button{
     margin: 2vh;
 }
 
-#feedback.invisable{
+#feedback.hidden{
    display: none;
 }

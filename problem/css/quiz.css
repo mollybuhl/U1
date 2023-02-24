@@ -2,16 +2,6 @@
     background-image: url(../media/backdrop_quiz1.jpg);
 }
 
-#wrapper.quiz > #main{
-   
-
-    display: flex;
-}
-
-#wrapper.quiz > #main.background{
-  
-}
-
 #logout_bar{
     background-color: whitesmoke;
     border-radius: 5px;
@@ -30,15 +20,9 @@
     font-size: 17px;
 }
 
-
 .image{
     margin-top: 15vh;
     margin-bottom: 2vh;
-    
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .image > img{
@@ -50,7 +34,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px;
-
     cursor: pointer;
 }
 
@@ -59,32 +42,26 @@
     border: 1px solid #606f60;
     border-radius: 10px;
     padding: 5px;
+    text-align: center;
     
     display: flex;
     justify-content: center;
     align-items: center;
-
-    text-align: center;
 }
 
 .options > div:hover{
     background-color: rgb(71, 89, 71);
 }
 
-.answer_feedback.hidden{
-    display: none;
-}
-
 .answer_feedback{
     border-radius: 15px;
     height: 18vh;
     width: 84vw;
+    padding: 3vh;
+
     font-size: 24px;
     font-family: RobotoCondensed_regular;
     text-align: center;
-
-    padding: 3vh;
-
 
     display: flex;
     flex-direction: column;
@@ -100,24 +77,23 @@
     
     z-index: 10;
 }
+
+.answer_feedback.hidden{
+    display: none;
+}
+
 .answer_feedback > p{
     margin: 0;
     margin-bottom: 1vh;
 }
+
 .answer_feedback > button{
     font-size: 18px;
     height: 10vh;
     font-family: RobotoCondensed_regular;
 }
 
-.answer_feedback.true{
-    background-color: #779763;
-}
-.answer_feedback.false{
-    background-color: #976363;
-}
-
-#info_finding_image{
+#info_getting_random_image{
     background-color: rgba(245, 245, 245, 0.782);
     display: flex;
     justify-content: center;
@@ -134,11 +110,11 @@
     font-family: RobotoCondensed_regular;
 }
 
-#info_finding_image.hidden{
+#info_getting_random_image.hidden{
     display: none;
 }
 
-#info_finding_image > div{
+#info_getting_random_image > div{
     background-color: rgb(255, 255, 255);
     padding: 2vh;
     border-radius: 10px;
@@ -148,6 +124,6 @@
     align-items: center;
 }
 
-#info_finding_image > div.hidden{
+#info_getting_random_image > div.hidden{
     display: none;
 }
